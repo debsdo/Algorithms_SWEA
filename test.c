@@ -1,4 +1,6 @@
-﻿#include <stdio.h>
+﻿//vs code - github test
+
+#include <stdio.h>
 
 int main() {
 	return 0;
