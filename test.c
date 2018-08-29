@@ -1,4 +1,4 @@
-﻿//vs code - github test
+﻿//vs code - github connection test
 
 #include <stdio.h>
 
