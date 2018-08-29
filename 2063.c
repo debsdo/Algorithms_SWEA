@@ -48,4 +48,6 @@ int main() {
 	bubbleSort(numBox, n);
 
 	printf("%d", numBox[n / 2]);
+
+	return 0;
 }
