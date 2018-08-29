@@ -41,4 +41,5 @@ int main() {
 		printf("#%d %d\n", i + 1, numBox[9]);
 	}
 
+	return 0;
 }
