@@ -16,7 +16,7 @@
 
 #include <stdio.h>
 
-int monthChecker(int num) {
+int mChker(int num) {
 	if (num >= 1 && num <= 12) {
 		return 1;
 	}
@@ -25,21 +25,21 @@ int monthChecker(int num) {
 	}
 }
 
-int monthGroupFinder(int month) {
-	char months30[4] = { 4,6,9,11 };
-	char months31[7] = { 1,3,5,7,8,10,12 };
-	char months28[1] = { 2 };
-	char monthCheck = monthChecker(month);
+int mGrpFnder(int mt) {
+	char m30[4] = { 4,6,9,11 };
+	char m31[7] = { 1,3,5,7,8,10,12 };
+	char m28[1] = { 2 };
+	char mChk = mChker(mt);
 
-	if (monthCheck == 1) {
+	if (mChk == 1) {
 		for (int i = 0; i < 4; i++) {
-			if (month == months30[i]) {
+			if (mt == m30[i]) {
 				return 30;
 			}
 		}
 
 		for (int i = 0; i < 7; i++) {
-			if (month == months31[i]) {
+			if (mt == m31[i]) {
 				return 31;
 			}
 		}
@@ -51,20 +51,20 @@ int monthGroupFinder(int month) {
 	}
 }
 
-int dateChecker(int month, int date) {
-	char monthGroup = monthGroupFinder(month);
-	if (monthGroup == 30) {
-		if (date >= 1 && date <= 30) {
+int dChker(int mt, int dt) {
+	char mGrp = mGrpFnder(mt);
+	if (mGrp == 30) {
+		if (dt >= 1 && dt <= 30) {
 			return 1;
 		}
 	}
-	else if (monthGroup == 31) {
-		if (date >= 1 && date <= 31) {
+	else if (mGrp == 31) {
+		if (dt >= 1 && dt <= 31) {
 			return 1;
 		}
 	}
-	else if (monthGroup == 28) {
-		if (date >= 1 && date <= 28) {
+	else if (mGrp == 28) {
+		if (dt >= 1 && dt <= 28) {
 			return 1;
 		}
 	}
@@ -73,37 +73,26 @@ int dateChecker(int month, int date) {
 	}
 }
 
-int formatter(int num) {
-	int year, month, date;
-
-	year = num / 10000;
-	month = (num % 10000) / 100;
-	date = (num % 10000) % 100;
-	printf("%04d/%02d/%02d\n", year, month, date);
-
-	return 1;
-}
-
 int main() {
 	int tc, inNum;
 
 	scanf("%d", &tc);
 
 	for (int i = 0; i < tc; i++) {
-		int year, month, date;
+		int yr, mt, dt;
 
 		scanf("%d", &inNum);
 
-		year = inNum / 10000;
-		month = (inNum % 10000) / 100;
-		date = (inNum % 10000) % 100;
+		yr = inNum / 10000;
+		mt = (inNum % 10000) / 100;
+		dt = (inNum % 10000) % 100;
 
-		char monthCheck = monthChecker(month);
-		char dateCheck = dateChecker(month, date);
+		char mChk = mChker(mt);
+		char dChk = dChker(mt, dt);
 
-		if (monthCheck == 1 && dateCheck == 1) {
+		if (mChk == 1 && dChk == 1) {
 			printf("#%d ", i + 1);
-			formatter(inNum);
+			printf("%04d/%02d/%02d\n", yr, mt, dt);
 		}
 		else {
 			printf("#%d -1\n", i + 1);
