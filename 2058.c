@@ -43,4 +43,6 @@ int main() {
 		one = n % 10;
 		printf("%d", thsnd + hndrd + ten + one);
 	}
+
+	return 0;
 }
