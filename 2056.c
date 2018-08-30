@@ -16,88 +16,66 @@
 
 #include <stdio.h>
 
-int mChker(int num) {
-	if (num >= 1 && num <= 12) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
-}
-
-int mGrpFnder(int mt) {
-	char m30[4] = { 4,6,9,11 };
-	char m31[7] = { 1,3,5,7,8,10,12 };
-	char m28[1] = { 2 };
-	char mChk = mChker(mt);
-
-	if (mChk == 1) {
-		for (int i = 0; i < 4; i++) {
-			if (mt == m30[i]) {
-				return 30;
-			}
-		}
-
-		for (int i = 0; i < 7; i++) {
-			if (mt == m31[i]) {
-				return 31;
-			}
-		}
-
-		return 28;
-	}
-	else {
-		return 0;
-	}
-}
-
-int dChker(int mt, int dt) {
-	char mGrp = mGrpFnder(mt);
-	if (mGrp == 30) {
-		if (dt >= 1 && dt <= 30) {
-			return 1;
-		}
-	}
-	else if (mGrp == 31) {
-		if (dt >= 1 && dt <= 31) {
-			return 1;
-		}
-	}
-	else if (mGrp == 28) {
-		if (dt >= 1 && dt <= 28) {
-			return 1;
-		}
-	}
-	else {
-		return 0;
-	}
-}
+char input[12];
 
 int main() {
-	int tc, inNum;
+   int T;
+   int tc = 0;
+   scanf("%d", &T);
+   while (tc++ < T) {
+      scanf("%s", input);
 
-	scanf("%d", &tc);
+      int flag = 0;
+      int year, month, day;
+      year = (input[0] - 48) * 1000 + (input[1] - 48) * 100 +
+         (input[2] - 48) * 10 + (input[3] - 48);
+      month = (input[4] - 48) * 10 + (input[5] - 48);
+      day = (input[6] - 48) * 10 + (input[7] - 48);
 
-	for (int i = 0; i < tc; i++) {
-		int yr, mt, dt;
-
-		scanf("%d", &inNum);
-
-		yr = inNum / 10000;
-		mt = (inNum % 10000) / 100;
-		dt = (inNum % 10000) % 100;
-
-		char mChk = mChker(mt);
-		char dChk = dChker(mt, dt);
-
-		if (mChk == 1 && dChk == 1) {
-			printf("#%d ", i + 1);
-			printf("%04d/%02d/%02d\n", yr, mt, dt);
-		}
-		else {
-			printf("#%d -1\n", i + 1);
-		}
-	}
-
-	return 0;
+      while(1){
+         if (month <= 0 || month > 12) {
+            flag = 1;
+            break;
+         }
+         if (month == 2) {
+            if (day <= 0 || day > 28) {
+               flag = 1;
+               break;
+            }
+         }
+         else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            if (day <= 0 || day > 30) {
+               flag = 1;
+               break;
+            }
+         }
+         else {
+            if (day <= 0 || day > 31) {
+               flag = 1;
+               break;
+            }
+         }
+         break;
+      }
+      
+      if (flag) {
+         printf("#%d -1\n", tc);
+      }
+      else {
+         printf("#%d ", tc);
+         int cnt = 0;
+         int w = 0;
+         while (cnt < 12) {
+            if (cnt == 4 || cnt == 7) {
+               printf("/");
+            }
+            else {
+               printf("%c", input[w++]);
+            }
+            cnt++;
+         }
+         printf("\n");
+      }
+   }
+   return 0;
 }
