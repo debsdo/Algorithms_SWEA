@@ -1,6 +1,8 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 
+// 코드 정리 필요
+
 int main() {
 	int num;
 	scanf("%d", &num);
