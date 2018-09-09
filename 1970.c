@@ -65,4 +65,6 @@ int main() {
 		printf("#%d\n", t + 1);
 		printf("%d %d %d %d %d %d %d %d\n", a, b, c, d, e, f, g, h);
 	}
+
+	return 0;
 }
