@@ -1,4 +1,6 @@
-﻿#include <stdio.h>
+﻿// 풀이 중
+
+#include <stdio.h>
 #include <string.h>
 #include <malloc.h>
 
