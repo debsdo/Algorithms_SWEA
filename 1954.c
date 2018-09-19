@@ -104,9 +104,7 @@ int main() {
 			printf("\n");
 		}
 
-		for (int i = 0; i < n; i++) {
-			free(snail[i]);
-		}
+		free(snail);
 	}
 
 	return 0;
