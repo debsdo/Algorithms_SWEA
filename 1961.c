@@ -81,6 +81,11 @@ int main() {
 			}
 			printf("\n");
 		}
+
+		free(arr);
+		free(arr90);
+		free(arr180);
+		free(arr360);
 	}
 
 	return 0;
