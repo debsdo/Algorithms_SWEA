@@ -56,6 +56,8 @@ int main() {
 					printf("\n");
 				}
 			}
+
+			free(numTemp);
 		}
 	}
 
