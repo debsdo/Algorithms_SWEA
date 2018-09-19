@@ -54,7 +54,7 @@ int main() {
 		printf("#%d ", t + 1);
 		for (int j = 0; j < 15; j++) {
 			for (int i = 0; i< 5; i++) {
-				if (array[i][j] != '\0') {
+				if (array[i][j] != NULL) {
 					printf("%c", array[i][j]);
 				}
 			}
