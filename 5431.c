@@ -47,6 +47,9 @@ int main() {
 			}
 		}
 		printf("\n");
+		
+		free(students);
+		free(submitter);
 	}
 
 	return 0;
