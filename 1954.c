@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <malloc.h>
 
 int main() {
@@ -9,24 +9,18 @@ int main() {
 		int n;
 		scanf("%d", &n);
 
-		// ´ŞÆØÀÌ °ø°£ ÇÒ´ç (n+1)*(n+1)
+		// ë‹¬íŒ½ì´ ê³µê°„ í• ë‹¹
 		int **snail;
-		snail = (int**)malloc(sizeof(int*)*(n+1));
+		snail = (int**)malloc(sizeof(int*)*n);
 		for (int i = 0; i < n+1; i++) {
-			snail[i] = (int*)malloc(sizeof(int)*(n+1));
+			snail[i] = (int*)malloc(sizeof(int)*n);
 		}
 
-		// ´ŞÆØÀÌ ÃÊ±âÈ­ n*n
+		// ë‹¬íŒ½ì´ ì´ˆê¸°í™” n*n
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				snail[i][j] = 0;
 			}
-		}
-
-		int last = n;
-		for (int i = 0; i < n + 1; i++) {
-			snail[i][last] = 1;
-			snail[last][i] = 1;
 		}
 
 		int num = 0, row = 0, col = -1;
@@ -37,7 +31,6 @@ int main() {
 			
 			if (right) {
 				col += 1;
-
 			}
 			else if (down) {
 				row += 1;
