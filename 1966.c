@@ -50,6 +50,7 @@ int main() {
 			printf(" %d", numBox[i]);
 		}
 		printf("\n");
+		free(numBox);
 	}
 
 	return 0;
