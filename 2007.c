@@ -47,6 +47,9 @@ int groupChecker(char str[], int n) {
 	else {
 		return 0;
 	}
+
+	free(strCut1);
+	free(strCut2);
 }
 
 int main() {
