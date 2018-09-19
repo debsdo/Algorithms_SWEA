@@ -86,6 +86,8 @@ int main() {
 		}
 
 		printf("#%d %d\n", t+1, counter);
+
+		free(array);
 	}
 	
 	return 0;
