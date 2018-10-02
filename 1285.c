@@ -58,4 +58,6 @@ int main() {
 		free(points);
 		free(dists);
 	}
+
+	return 0;
 }
