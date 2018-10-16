@@ -54,4 +54,5 @@ int main() {
 		inPrinter(len);
 		outPrinter(len);
 	}
+	return 0;
 }
